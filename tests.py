@@ -1,6 +1,7 @@
 import unittest
 from lib.socketmock import SocketMock
 from development.get import Get
+from development.post import Post
 from development.processResponse import ProcessResponse
 from development.localmath import GCD
 
@@ -38,6 +39,19 @@ class TestMathGCD(unittest.TestCase):
 	self.assertEquals(test.getGCD() , 1)
 	test = GCD(100 , 120)
 	self.assertEquals(test.getGCD() , 20)
+
+class TestPost(unittest.TestCase):
+
+    def test_connects(self):
+	mock = SocketMock()
+	cookie = "This is a test cookie"
+	divisor = 100
+	test = Post(mock , cookie , divisor)
+	reply = test.connect()
+	self.assertEquals(mock.connectCalled , ('quantbet.com', 80))
+	self.assertEquals(reply , ["<html><div>" , "test" , "</div></html>"])
+	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nCookie:" + cookie + "\n\ndivisor:" + divisor)
+	self.assertEquals(mock.closeCalled , 1)
 
 if __name__ == '__main__':
     unittest.main()
