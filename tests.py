@@ -2,7 +2,6 @@ import unittest
 from socketmock import SocketMock
 from get import Get
 from processResponse import ProcessResponse
-from localmath import GCD
 
 class TestGet(unittest.TestCase):
 
