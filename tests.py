@@ -2,6 +2,7 @@ import unittest
 from socketmock import SocketMock
 from get import Get
 from processResponse import ProcessResponse
+from localmath import GCD
 
 class TestGet(unittest.TestCase):
 
@@ -27,6 +28,16 @@ class TestProcessResponse(unittest.TestCase):
 	test = ProcessResponse(mock)
 	cookie = test.getCookie()
 	self.assertEquals(cookie , "thisisa brokencookie string ")
+
+class TestMathGCD(unittest.TestCase):
+
+    def test_returns_GCD(self):
+	test = GCD(100 , 10)
+	self.assertEquals(test.getGCD() , 10)
+	test = GCD(13 , 17)
+	self.assertEquals(test.getGCD() , 1)
+	test = GCD(100 , 120)
+	self.assertEquals(test.getGCD() , 20)
 
 if __name__ == '__main__':
     unittest.main()
