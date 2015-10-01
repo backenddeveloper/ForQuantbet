@@ -1,8 +1,8 @@
 import unittest
-from socketmock import SocketMock
-from get import Get
-from processResponse import ProcessResponse
-from localmath import GCD
+from lib.socketmock import SocketMock
+from development.get import Get
+from development.processResponse import ProcessResponse
+from development.localmath import GCD
 
 class TestGet(unittest.TestCase):
 
