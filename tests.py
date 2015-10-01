@@ -50,7 +50,7 @@ class TestPost(unittest.TestCase):
 	reply = test.connect()
 	self.assertEquals(mock.connectCalled , ('quantbet.com', 80))
 	self.assertEquals(reply , ["<html><div>" , "test" , "</div></html>"])
-	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nCookie:" + cookie + "\n\ndivisor:" + divisor)
+	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nCookie:This is a test cookie\n\ndivisor:100")
 	self.assertEquals(mock.closeCalled , 1)
 
 if __name__ == '__main__':
