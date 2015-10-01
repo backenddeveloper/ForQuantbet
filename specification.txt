@@ -1,0 +1,48 @@
+#############################
+## License and description ##
+#############################
+
+This project is to show at interview with Quantbet.
+All code here is released freely under the GNU/GPLv3.
+Code in this project is NOT suitable for production use.
+
+###################
+## Problem brief ##
+###################
+
+A website displays two decimal integers between 8 and 12 places long.
+The Greatest Common Multiple of the two numbers must be submitted back 
+to the website.
+
+###################
+## Problem notes ##
+###################
+
+A message stating that the response was too slow is issued to a cut 
+and paste response using a pre-existing tool (Circia 6 seconds.)
+A message stating that the response was too slow is issued to a 
+re-written response using a pre-existing tool (Circia 10 seconds,
+focus stays on the form window.)
+A message stating that the response was too slow is issued to a 
+response that takes 40 seconds. (Acceptable pen and paper calculation time.)
+Packet capture shows that the numbers are embedded in the page rather than 
+fetched asynchronously.
+
+
+##############
+## Solution ##
+##############
+
+Write a progarm that will:
+- Fetch two prime numbers from a website
+- Calculate the GCD
+- Submit it to the website
+
+#####################
+## Language choice ##
+#####################
+
+Javascript is the right language for this particular task as it contains all the 
+needed tools: AJAX, numerical processing, leverage of the browser for rendering response.
+
+However this is a test of Java and/or Python coding skills.
