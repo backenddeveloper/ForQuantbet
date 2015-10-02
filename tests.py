@@ -50,7 +50,15 @@ class TestPost(unittest.TestCase):
 	reply = test.connect()
 	self.assertEquals(mock.connectCalled , ('quantbet.com', 80))
 	self.assertEquals(reply , ["<html><div>" , "test" , "</div></html>"])
-	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nContent-Length: 13\nOrigin: http://quantbet.com\nContent-Type: application/x-www-form-urlencoded\nReferer: http://quantbet.com/quiz\nCookie:This is a test cookie\n\ndivisor=100")
+        packet_string = ("POST /submit HTTP/1.1 \n"
+		 	 "Host: quantbet.com \n"
+		         "Content-Length: 13 \n"
+		         "Origin: http://quantbet.com \n"
+		         "Content-Type: application/x-www-form-urlencoded \n"
+		         "Referer: http://quantbet.com/quiz \n"
+		         "Cookie:This is a test cookie\n\n"
+		         "divisor=100")
+	self.assertEquals(mock.dataSent , packet_string)
 	self.assertEquals(mock.closeCalled , 1)
 
 if __name__ == '__main__':
