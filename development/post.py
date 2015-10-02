@@ -15,10 +15,13 @@ Host: quantbet.com
 Content-Length: 13
 Origin: http://quantbet.com
 Content-Type: application/x-www-form-urlencoded
-Referer: http://quantbet.com/quiz\n\n
+Referer: http://quantbet.com/quiz
+Cookie:''' + self.cookie + '''
+
 divisor=''' + self.divisor
 	    self.clientsocket.connect(('quantbet.com', 80))
 	    self.clientsocket.send(packet)
+	    self.clientsocket.shutdown(1)
 	    print "Divisor sent..."
 	    data = []
 	    while 1:
@@ -29,4 +32,3 @@ divisor=''' + self.divisor
 	    self.clientsocket.close()
 	    return data
 
-#'''Cookie:''' + self.cookie + '''\n'''

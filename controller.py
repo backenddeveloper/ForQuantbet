@@ -6,8 +6,10 @@ from development.post import Post
 from development.localmath import GCD
 from development.processResponse import ProcessResponse
 
+start_time = time.time()
+
 print "Sending request..."
-'''
+
 soc = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
 
 request = Get(soc)
@@ -32,19 +34,16 @@ divisor = math.getGCD()
 
 print "Divisor = " + str(divisor)
 
-#print "Sleeping"
-
-#time.sleep(2)
-
 print "Sending divisor..."
-'''
+
 soc = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
-cookie = "cookie"
-divisor = 236
+
 request = Post(soc , cookie , divisor)
 
 profit = request.connect()
 
-#print "Divisor sent..."
+print "Divisor sent..."
 
 print profit
+
+print "Total time: " + str(time.time() - start_time)

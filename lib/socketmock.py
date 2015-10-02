@@ -20,3 +20,6 @@ class SocketMock:
 
     def close(self):
 	self.closeCalled = 1
+
+    def shutdown(self , argument):
+	self.shutdownCalled = argument

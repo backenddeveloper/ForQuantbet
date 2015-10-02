@@ -25,7 +25,7 @@ class TestProcessResponse(unittest.TestCase):
 	self.assertEquals(numbers , [17,101])
 
     def test_finds_cookie(self):
-	mock = "\nHost:quantbet.com \nCookie:thisisa brokencookie string \nAccept:gzip"
+	mock = "\nHost:quantbet.com \nCookie:thisisa brokencookie string "
 	test = ProcessResponse(mock)
 	cookie = test.getCookie()
 	self.assertEquals(cookie , "thisisa brokencookie string ")
@@ -50,7 +50,7 @@ class TestPost(unittest.TestCase):
 	reply = test.connect()
 	self.assertEquals(mock.connectCalled , ('quantbet.com', 80))
 	self.assertEquals(reply , ["<html><div>" , "test" , "</div></html>"])
-	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nCookie:This is a test cookie\n\ndivisor:100")
+	self.assertEquals(mock.dataSent , "POST /submit HTTP/1.1\nHost: quantbet.com\nContent-Length: 13\nOrigin: http://quantbet.com\nContent-Type: application/x-www-form-urlencoded\nReferer: http://quantbet.com/quiz\nCookie:This is a test cookie\n\ndivisor=100")
 	self.assertEquals(mock.closeCalled , 1)
 
 if __name__ == '__main__':
