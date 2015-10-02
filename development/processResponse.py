@@ -1,7 +1,7 @@
 class ProcessResponse:
 
     def __init__(self , responseString):
-	self.string = responseString
+	self.string = str(responseString)
 
     def getNumbers(self):
 	firstNumber  = int(self.string.split('<strong>')[1].split('</strong>')[0])
@@ -9,5 +9,5 @@ class ProcessResponse:
 	return [firstNumber , secondNumber]
 
     def getCookie(self):
-	cookie = self.string.split("Cookie:")[1].split("\n")[0]
+	cookie = self.string.split("Cookie:")[1].split(";")[0]
 	return cookie

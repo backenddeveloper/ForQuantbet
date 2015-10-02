@@ -10,9 +10,16 @@ class Post:
 	self.divisor = str(divisor)
 
     def connect(self) :
-	    packet = "POST /submit HTTP/1.1\nHost: quantbet.com\nCookie:" + self.cookie + "\n\ndivisor:" + self.divisor
+	    packet = '''POST /submit HTTP/1.1
+Host: quantbet.com
+Content-Length: 13
+Origin: http://quantbet.com
+Content-Type: application/x-www-form-urlencoded
+Referer: http://quantbet.com/quiz\n\n
+divisor=''' + self.divisor
 	    self.clientsocket.connect(('quantbet.com', 80))
 	    self.clientsocket.send(packet)
+	    print "Divisor sent..."
 	    data = []
 	    while 1:
 		reply = self.clientsocket.recv(8192)
@@ -21,3 +28,5 @@ class Post:
 		    break
 	    self.clientsocket.close()
 	    return data
+
+#'''Cookie:''' + self.cookie + '''\n'''
